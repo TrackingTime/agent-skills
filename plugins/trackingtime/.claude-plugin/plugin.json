@@ -1,0 +1,22 @@
+{
+  "name": "trackingtime",
+  "version": "1.0.0",
+  "description": "Official TrackingTime agents. Your back office, with the roles you need — starting with Office Manager: clock in and out, breaks, who's in today, fill your timesheet and end-of-day reports.",
+  "author": {
+    "name": "TrackingTime",
+    "url": "https://trackingtime.co"
+  },
+  "homepage": "https://trackingtime.co/ai-agents",
+  "repository": "https://github.com/trackingtime/agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "time tracking",
+    "timesheet",
+    "attendance",
+    "clock in",
+    "time off",
+    "payroll",
+    "trackingtime"
+  ],
+  "privacyPolicyUrl": "https://trackingtime.co/privacy-policy"
+}
