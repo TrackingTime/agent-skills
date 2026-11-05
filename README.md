@@ -14,9 +14,9 @@ Official AI agents for [TrackingTime](https://trackingtime.co). Each agent cover
 | **HR Manager** | Hour-logging reminders and escalation, compliance reports, time off requests, balances and approvals, holidays, who's out | Available |
 | **Payroll Assistant** | Pay period hours per person, overtime, absences, period close and lock, CSV for payroll | Available |
 | **Account Manager** | Retainer burn alerts, client reports, unbilled hours, invoices, expenses | Available |
-| **Project Manager** | Projects from a brief, profitability, team workload | Coming soon |
+| **Project Manager** | Projects from a brief, project status, profitability, team workload | Available |
 
-One install includes every agent. Turn on only the roles you need.
+One install includes all five agents. Turn on only the roles you need.
 
 ## What you need
 
@@ -54,12 +54,16 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 | `/trackingtime:client-report <client> [period]` | Client-ready report of hours and amounts (managers) |
 | `/trackingtime:unbilled-hours [client]` | Billable hours not yet invoiced, with amounts (managers) |
 | `/trackingtime:invoices [overdue, send N, paid N]` | Invoice status; send or mark paid after confirmation (admins) |
+| `/trackingtime:new-project <brief>` | Project with tasks, owners and dates from a brief, after confirmation (managers) |
+| `/trackingtime:project-status <project>` | Hours vs estimate, delivery, open and overdue tasks (managers) |
+| `/trackingtime:profitability [project or client]` | Billable value, cost and margin (admins) |
+| `/trackingtime:team-workload [team]` | Capacity, hours logged, open tasks this week (managers) |
 
 ### Claude (web and desktop)
 
 1. Settings → Capabilities → turn on **Code execution and file creation**.
 2. Settings → Connectors → **Add custom connector**. Name: TrackingTime. URL: `https://mcp.trackingtime.co/mcp`. Connect and sign in.
-3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `office-manager.zip`, `hr-manager.zip`, `payroll-assistant.zip` or `account-manager.zip`).
+3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `office-manager.zip`, `hr-manager.zip`, `payroll-assistant.zip`, `account-manager.zip` or `project-manager.zip`).
 4. Turn the skill on.
 
 ### ChatGPT
@@ -107,7 +111,8 @@ agent-skills/
 │       │   └── references/             One file per workflow, plus connector notes
 │       ├── hr-manager/
 │       ├── payroll-assistant/
-│       └── account-manager/
+│       ├── account-manager/
+│       └── project-manager/
 ├── perplexity/                         Agent instructions for Perplexity Spaces
 ├── scripts/package.sh                  Builds dist/<agent>.zip for chat apps
 └── dist/                               Built ZIPs (git-ignored; attached to each GitHub Release)

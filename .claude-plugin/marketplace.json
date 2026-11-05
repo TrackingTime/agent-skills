@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Official TrackingTime agents: your back office, with the roles you need.",
-    "version": "1.3.0"
+    "version": "1.4.0"
   },
   "plugins": [
     {
       "name": "trackingtime",
       "source": "./plugins/trackingtime",
-      "description": "TrackingTime agents and connector in one install: Office Manager, HR Manager, Payroll Assistant and Account Manager today; Project Manager coming next.",
-      "version": "1.3.0",
+      "description": "TrackingTime agents and connector in one install: Office Manager, HR Manager, Payroll Assistant, Account Manager and Project Manager.",
+      "version": "1.4.0",
       "homepage": "https://trackingtime.co/ai-agents",
       "category": "productivity"
     }
