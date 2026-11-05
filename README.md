@@ -13,14 +13,14 @@ Official AI agents for [TrackingTime](https://trackingtime.co). Each agent cover
 | **Office Manager** | Clock in and out, breaks, who's in today, fill your timesheet, end-of-day report | Available |
 | **HR Manager** | Hour-logging reminders and escalation, compliance reports, time off requests, balances and approvals, holidays, who's out | Available |
 | **Payroll Assistant** | Pay period hours per person, overtime, absences, period close and lock, CSV for payroll | Available |
-| **Account Manager** | Retainer burn alerts, client reports, unbilled hours, invoices, expenses | Coming soon |
+| **Account Manager** | Retainer burn alerts, client reports, unbilled hours, invoices, expenses | Available |
 | **Project Manager** | Projects from a brief, profitability, team workload | Coming soon |
 
 One install includes every agent. Turn on only the roles you need.
 
 ## What you need
 
-- A TrackingTime account. Timesheets work on the Free Plan; attendance, Time Cards, time off and the Payroll Assistant need the Pro Plan.
+- A TrackingTime account. Timesheets work on the Free Plan; attendance, Time Cards, time off, retainers and invoices (Payroll Assistant and Account Manager) need the Pro Plan.
 - The TrackingTime connector: `https://mcp.trackingtime.co/mcp` (OAuth: you sign in with your TrackingTime account).
 - For HR Manager reminders: a Slack or Microsoft Teams connector in the same assistant. Without one, the agent drafts the messages and you send them.
 
@@ -50,12 +50,16 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 | `/trackingtime:overtime-check [period]` | Who has overtime, how much, which days (admins) |
 | `/trackingtime:absences [period]` | Unexplained absences, pending leave, short days (admins) |
 | `/trackingtime:close-period [period]` | Readiness check, then lock the period after confirmation (admins) |
+| `/trackingtime:retainer-burn [client]` | Retainer usage, pace and alerts (managers) |
+| `/trackingtime:client-report <client> [period]` | Client-ready report of hours and amounts (managers) |
+| `/trackingtime:unbilled-hours [client]` | Billable hours not yet invoiced, with amounts (managers) |
+| `/trackingtime:invoices [overdue, send N, paid N]` | Invoice status; send or mark paid after confirmation (admins) |
 
 ### Claude (web and desktop)
 
 1. Settings → Capabilities → turn on **Code execution and file creation**.
 2. Settings → Connectors → **Add custom connector**. Name: TrackingTime. URL: `https://mcp.trackingtime.co/mcp`. Connect and sign in.
-3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `office-manager.zip`, `hr-manager.zip` or `payroll-assistant.zip`).
+3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `office-manager.zip`, `hr-manager.zip`, `payroll-assistant.zip` or `account-manager.zip`).
 4. Turn the skill on.
 
 ### ChatGPT
@@ -83,7 +87,7 @@ Or copy the agent folders into `.agents/skills/`, and add the connector in your 
 
 ## Customize
 
-Each agent has a `config.md` next to its `SKILL.md`: default task, language, who the managers are, when to escalate, what managers can see, pay period and overtime rules. Edit it before uploading. Nothing else needs to change.
+Each agent has a `config.md` next to its `SKILL.md`: default task, language, who the managers are, when to escalate, what managers can see, pay period and overtime rules, retainer alert thresholds, what client reports may show. Edit it before uploading. Nothing else needs to change.
 
 Each agent also ships `references/connector-notes.md`: what the TrackingTime connector can't do yet and the workaround the agent uses. We update it as the connector improves.
 
@@ -102,7 +106,8 @@ agent-skills/
 │       │   ├── config.md
 │       │   └── references/             One file per workflow, plus connector notes
 │       ├── hr-manager/
-│       └── payroll-assistant/
+│       ├── payroll-assistant/
+│       └── account-manager/
 ├── perplexity/                         Agent instructions for Perplexity Spaces
 ├── scripts/package.sh                  Builds dist/<agent>.zip for chat apps
 └── dist/                               Built ZIPs (git-ignored; attached to each GitHub Release)

@@ -30,7 +30,7 @@ What the TrackingTime MCP connector does and doesn't do today for payroll work.
 - `list_holidays` ignores `year`; pass `from` and `to`. Account holidays can apply to a subset of people (`users` empty = everyone).
 - `list_timeoff_balances` returns every cycle for every policy; pick the cycle that covers the period.
 - `list_filtered_events` with `include_timeoffs: true` adds `TIME_OFF_DEFAULT` rows (`toi` = request id, `pdf` = deductible amount) and `HOLIDAY_DEFAULT` rows with a `users` list. Useful for a quick overview of a week; the time card is still the source for payroll numbers.
-- `list_filtered_events` accepts `rounding: {"by": 15, "method": "round"}`. Its `filters` by `user` don't work (a string is rejected, an array returns nothing).
+- `list_filtered_events` accepts `rounding: {"by": 15, "method": "round"}`. Its `filters` take display names in an array (`{"by": "user", "operator": "is", "value": ["Ana García"]}`); ids return nothing.
 
 ## Expenses
 

@@ -5,7 +5,7 @@ What the TrackingTime MCP connector does and doesn't do today for HR work.
 ## Entries and presence
 
 - `list_filtered_events` (`date_range` with `period: "custom_range"`, `parameters: ["user"]`) is the compact way to see who has entries in a range: one row per entry with `uid`, `s`, `e`, `d`. It has no pagination, so query one week at a time on larger teams.
-- `list_filtered_events` `filters` by `user` returned nothing with a user id (`value: [499403]`), and a bare number is rejected. Don't filter by person there.
+- `list_filtered_events` `filters` work with display names, not ids: `{"by": "user", "operator": "is", "value": ["Ana García"]}`. An id returns nothing and a bare string is rejected.
 - `list_events` with `filter: USER` is the cheap call for one person over a range. The time part of `from`/`to` is ignored; whole days come back.
 - Running timers are not in either list until they stop. A person with only a running timer looks like "no entries yet".
 - `get_events_summary` returns an empty result; `get_events_stats` fails. Add up `d` yourself.
