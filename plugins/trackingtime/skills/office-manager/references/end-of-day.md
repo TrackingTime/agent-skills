@@ -4,14 +4,15 @@ A short summary of the person's own day, built from their entries.
 
 ## Steps
 
-1. `list_events` (`filter: USER`, `id: <user_id>`, `from` = `to` = today, `timezone`, `order: asc`).
-2. If `config.md` says to compare with the schedule: `get_user_schedule` (`user_id`) → expected hours for today's weekday.
-3. Build the report:
+1. `list_events` (`filter: USER`, `id: <user_id>`, `from` = `to` = today, `timezone`, `order: asc`). Add up `d` (seconds) for the total and per project (`p`). Don't use `get_events_summary` or the Time Card for today (see `connector-notes.md`).
+2. Check for a running timer with `list_user_tasks` (no filter, `tracking: true`). It isn't in the entry list until it stops.
+3. If `config.md` says to compare with the schedule: `get_user_schedule` (`user_id`) → expected hours for today's weekday (`mon`, `tue`… fields).
+4. Build the report:
    - **Total** worked today, and expected hours if available.
    - **By project**: hours per project, largest first.
-   - **Highlights**: one line per main task, using their own notes. Don't add accomplishments they didn't write.
+   - **Highlights**: one line per main task, using their own notes (`n`). Don't add accomplishments they didn't write.
    - **Gaps**: a timer still running, or missing hours against the schedule. Offer to fix them (clock out, or *Fill my timesheet*).
-4. Keep it under ten lines.
+5. Keep it under ten lines.
 
 ## Example
 

@@ -27,6 +27,7 @@ This file is the only thing you need to change to adapt the agent to your compan
 
 - Who may ask "who's in today": [anyone with Admin or Manager role in TrackingTime]
 - Show what each person is working on (task and project): [no — show status and hours only]
+- Check who is tracking right now, one call per person, when the team has at most this many people: [15]
 - Show people on time off and why (vacation, sick leave…): [show "on leave" only, never the reason]
 
 ## Fill my timesheet

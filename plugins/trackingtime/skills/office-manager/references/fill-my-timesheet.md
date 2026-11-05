@@ -5,7 +5,7 @@ Turns a plain description of a day ("9 to 11 the Acme landing, then a client cal
 ## Steps
 
 1. **Which day.** Default is today. Accept "yesterday", a weekday or a date.
-2. **What is already there.** `list_events` (`filter: USER`, `id: <user_id>`, `from` = `to` = that day, `timezone`, `order: asc`). Never create entries that overlap existing ones.
+2. **What is already there.** `list_events` (`filter: USER`, `id: <user_id>`, `from` = `to` = that day, `timezone`, `order: asc`). Never create entries that overlap existing ones. If it's today, also check for a running timer (`list_user_tasks`, `tracking: true`): it isn't in the list yet.
 3. **Map to tasks.** `list_user_trackables` (`user_id`, `include_tasks: true`). Match each piece of work to a task by meaning. If nothing fits, propose a new task name inside the closest project and mark it as new.
 4. **Build the proposal** as a table:
 
@@ -16,7 +16,7 @@ Turns a plain description of a day ("9 to 11 the Acme landing, then a client cal
    - Apply minimum length and rounding from `config.md`.
    - Show the total and, if known, the expected hours for the day.
 5. **Confirm.** "Shall I log these 5 entries (7 h 30 m)?" Let them edit any line.
-6. **Write.** `create_events_batch` with one event per row: `start`, `end` (`YYYY-MM-DD HH:MM:SS`), `timezone`, `event_type: WORK`, `user_id`, `task_id` (or `task_name` + `project_id` for an approved new task), `notes`.
+6. **Write.** One `create_event` per row: `start`, `end` (`YYYY-MM-DD HH:MM:SS`), `timezone`, `event_type: WORK`, `user_id`, `task_id`, `notes`. For an approved new task, `create_task` (`name`, `project_id`) first and use the returned id. `create_events_batch` fails today; don't use it.
 7. **Report.** "Logged 5 entries, 7 h 30 m." If any entry failed, list it and leave the rest as they are.
 
 ## Don'ts

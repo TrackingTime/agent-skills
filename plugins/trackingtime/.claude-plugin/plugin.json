@@ -1,7 +1,7 @@
 {
   "name": "trackingtime",
-  "version": "1.0.0",
-  "description": "Official TrackingTime agents. Your back office, with the roles you need — starting with Office Manager: clock in and out, breaks, who's in today, fill your timesheet and end-of-day reports.",
+  "version": "1.1.0",
+  "description": "Official TrackingTime agents. Your back office, with the roles you need — Office Manager (clock in and out, breaks, who's in today, fill your timesheet, end-of-day report) and HR Manager (hour-logging reminders, escalation, compliance reports, time off requests, approvals, holidays, who's out).",
   "author": {
     "name": "TrackingTime",
     "url": "https://trackingtime.co"
@@ -15,6 +15,9 @@
     "attendance",
     "clock in",
     "time off",
+    "pto",
+    "reminders",
+    "compliance",
     "payroll",
     "trackingtime"
   ],

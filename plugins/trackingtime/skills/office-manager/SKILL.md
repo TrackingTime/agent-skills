@@ -36,6 +36,8 @@ Pick the workflow from what the person says, then read only that reference file:
 
 If the request mixes two (for example "log my morning and clock me out"), run them in that order.
 
+`references/connector-notes.md` lists what the connector can't do yet (running timers aren't in the entry list, batch creation fails, day totals come from adding up entries). Read it when a call fails or returns less than you expect.
+
 ## How attendance works in TrackingTime
 
 TrackingTime builds attendance from the time entries themselves. Time Cards take the first start and last end of the day as the workday, and gaps between entries as breaks. So:

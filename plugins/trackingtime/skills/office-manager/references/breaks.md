@@ -17,6 +17,10 @@ TrackingTime counts the gap between two entries as a break in the Time Card. A b
 3. Reply with the length of the break: "Back on *Task* at 13:41 — 39 min break."
 4. If the break was longer than the threshold in `config.md`, just state the length. Never scold.
 
+## Short gaps
+
+The account's Time Cards setting `allow_breaks` (minutes) decides what counts as a break. A gap shorter than that is merged into the work block and won't show as a break. If someone asks why a 10-minute coffee doesn't appear, that's why. The value is in `get_me` → `apps` → `timecards` → `settings.allow_breaks`.
+
 ## When the BREAK event type is available
 
 TrackingTime is adding a dedicated BREAK event type. When the MCP exposes it, record breaks with it instead of the stop/start pair. Until then, the stop/start pair is correct and Time Cards will show the gap as a break.
