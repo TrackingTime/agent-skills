@@ -87,7 +87,7 @@ Perplexity doesn't load skills. Add TrackingTime as a custom remote connector (S
 npx skills add trackingtime/agent-skills
 ```
 
-Or copy the agent folders into `.agents/skills/`, and add the connector in your tool's MCP settings.
+Or download `trackingtime-agents.zip` from the latest GitHub Release, unzip it into `.agents/skills/`, and add the connector in your tool's MCP settings. The bundle has one folder per agent; Claude, ChatGPT and Gemini take one agent per upload, so use the per-agent ZIPs there.
 
 ## Customize
 
@@ -114,7 +114,7 @@ agent-skills/
 │       ├── account-manager/
 │       └── project-manager/
 ├── perplexity/                         Agent instructions for Perplexity Spaces
-├── scripts/package.sh                  Builds dist/<agent>.zip for chat apps
+├── scripts/package.sh                  Builds dist/<agent>.zip for chat apps and dist/trackingtime-agents.zip with all five
 └── dist/                               Built ZIPs (git-ignored; attached to each GitHub Release)
 ```
 
