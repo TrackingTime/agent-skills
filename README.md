@@ -72,7 +72,7 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 An Owner uploads the whole plugin once and every member gets all five agents, the commands and the connector:
 
 1. Organization settings → Plugins & skills → **Add** → **Upload a plugin**.
-2. Choose `trackingtime-plugin.zip` from the latest GitHub Release (under 200 MB; the plugin folder is the ZIP root).
+2. Choose `trackingtime-plugin.zip` from the latest GitHub Release (under 200 MB; `.claude-plugin/plugin.json` is at the ZIP root).
 3. Set the distribution to "Installed by default" or "Available to install". Members find it under Customize → Plugins.
 
 Members who sign in to Claude Code with the same account get it there too.

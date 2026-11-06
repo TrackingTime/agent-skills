@@ -24,9 +24,7 @@ rm -rf "$(dirname "$bundle_dir")"
 echo "dist/trackingtime-agents.zip"
 # Plugin ZIP for Claude Team and Enterprise (Organization settings > Plugins & skills > Upload a plugin):
 # the plugin folder at the root, with .claude-plugin/plugin.json, .mcp.json, commands/ and skills/.
-plugin_dir="$(mktemp -d)/trackingtime"
-mkdir -p "$plugin_dir"
-cp -R plugins/trackingtime/. "$plugin_dir/"
-(cd "$(dirname "$plugin_dir")" && zip -qr "$OLDPWD/dist/trackingtime-plugin.zip" "trackingtime" -x '*.DS_Store')
-rm -rf "$(dirname "$plugin_dir")"
+# The plugin ZIP has .claude-plugin/plugin.json at its root: the organization
+# uploader rejects a ZIP whose plugin sits inside a folder.
+(cd plugins/trackingtime && zip -qr "$OLDPWD/dist/trackingtime-plugin.zip" . -x '*.DS_Store')
 echo "dist/trackingtime-plugin.zip"
