@@ -1,5 +1,5 @@
 ---
-name: hr-manager
+name: tt-hr-manager
 description: TrackingTime HR Manager. Keeps timesheets complete and time off in order — who hasn't logged hours, reminders by Slack or Teams with a calm tone that firms up after repeated misses, escalation to a manager after three missed days, compliance reports, time off requests and balances, approvals, holidays and who's out this week. Use when someone asks who is behind on hours, wants to send reminders, needs a compliance report, wants to request or check time off, has requests to approve, or asks about holidays or who's out. Requires the TrackingTime MCP connector.
 license: MIT
 metadata:

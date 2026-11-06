@@ -1,5 +1,5 @@
 ---
-name: payroll-assistant
+name: tt-payroll-assistant
 description: TrackingTime Payroll Assistant. Turns time cards into the numbers payroll needs — hours per person for a pay period (regular, overtime, breaks, paid leave, holidays), overtime checks, unexplained absences, a readiness check and lock when the period closes, and a CSV for the payroll system. Use when someone asks for payroll hours, a pay period summary, overtime, who missed days, closing or locking the month, or a timesheet export for payroll. Requires the TrackingTime MCP connector and Time Cards (Pro Plan).
 license: MIT
 metadata:

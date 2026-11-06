@@ -1,5 +1,5 @@
 ---
-name: office-manager
+name: tt-office-manager
 description: TrackingTime Office Manager. Runs the team's workday from chat — clock in and clock out, breaks and lunch, who is in or out today, filling in a timesheet from a plain description of the day, and an end-of-day report. Use when someone says they arrived, are leaving, taking a break, asks who is in the office, wants to log what they did today, or asks for their end-of-day summary. Requires the TrackingTime MCP connector.
 license: MIT
 metadata:

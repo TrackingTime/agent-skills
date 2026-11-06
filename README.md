@@ -63,7 +63,7 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 
 1. Settings → Capabilities → turn on **Code execution and file creation**.
 2. Settings → Connectors → **Add custom connector**. Name: TrackingTime. URL: `https://mcp.trackingtime.co/mcp`. Connect and sign in.
-3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `office-manager.zip`, `hr-manager.zip`, `payroll-assistant.zip`, `account-manager.zip` or `project-manager.zip`).
+3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `tt-office-manager.zip`, `tt-hr-manager.zip`, `tt-payroll-assistant.zip`, `tt-account-manager.zip` or `tt-project-manager.zip`).
 4. Turn the skill on.
 
 ### Claude Team and Enterprise (everyone at once)
@@ -115,14 +115,14 @@ agent-skills/
 │   ├── .mcp.json                       TrackingTime connector
 │   ├── commands/                       Slash commands
 │   └── skills/
-│       ├── office-manager/             One folder per agent
+│       ├── tt-office-manager/             One folder per agent
 │       │   ├── SKILL.md
 │       │   ├── config.md
 │       │   └── references/             One file per workflow, plus connector notes
-│       ├── hr-manager/
-│       ├── payroll-assistant/
-│       ├── account-manager/
-│       └── project-manager/
+│       ├── tt-hr-manager/
+│       ├── tt-payroll-assistant/
+│       ├── tt-account-manager/
+│       └── tt-project-manager/
 ├── perplexity/                         Agent instructions for Perplexity Spaces
 ├── scripts/package.sh                  Builds dist/<agent>.zip, dist/trackingtime-agents.zip and dist/trackingtime-plugin.zip
 └── dist/                               Built ZIPs (git-ignored; attached to each GitHub Release)

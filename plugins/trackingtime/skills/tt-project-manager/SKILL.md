@@ -1,5 +1,5 @@
 ---
-name: project-manager
+name: tt-project-manager
 description: TrackingTime Project Manager. Sets up a project from a plain brief (project, customer, tasks, assignees, due dates, estimate), reports where a project stands against its estimate and delivery date, shows profitability per project or client (billable value, cost, margin), and shows team workload for the week (capacity from schedules, hours logged, open tasks and due dates). Use when someone wants to create a project or tasks, asks how a project is going, whether it is profitable, or who has room this week. Requires the TrackingTime MCP connector.
 license: MIT
 metadata:

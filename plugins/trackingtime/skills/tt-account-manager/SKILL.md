@@ -1,5 +1,5 @@
 ---
-name: account-manager
+name: tt-account-manager
 description: TrackingTime Account Manager. Keeps client accounts in order — retainer burn and alerts before a budget runs out, hours and spend per client for any period, unbilled billable hours ready to invoice, invoice status (draft, open, overdue, paid) and sending or marking paid, client-ready reports, and billable expenses. Use when someone asks how a retainer is doing, what to bill a client, which invoices are overdue, wants a client report, or needs to log or review expenses. Requires the TrackingTime MCP connector; retainers and invoices need the Pro Plan.
 license: MIT
 metadata:

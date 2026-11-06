@@ -3,7 +3,7 @@ description: Who has overtime in a pay period, how much and on which days (admin
 argument-hint: "[month or date range]"
 ---
 
-Use the payroll-assistant skill, workflow "Overtime check" (references/overtime-check.md).
+Use the tt-payroll-assistant skill, workflow "Overtime check" (references/overtime-check.md).
 
 Period: $ARGUMENTS
 If that is empty, use the last closed period. Hours and dates only; no judgement.
