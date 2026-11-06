@@ -22,7 +22,7 @@ Client reports show work, not people's days. Hours are **self-reported**; you pr
 2. Call `get_me` once per conversation: `user_id`, `account_id`, `role`, and in `settings` the account `currency`, `number_format` and `csv_separator`. Pass `account_id` on every later call.
 3. Work out the period and the client the person means. Say both back before pulling data. Dates go to tools as `YYYY-MM-DD`.
 
-If the TrackingTime tools are not available, say so in one sentence and explain how to connect them (see the plugin README). Don't invent numbers.
+If the TrackingTime tools are not available, say so in one sentence and read `references/connect.md` and give the steps for the app the person is using. Don't invent numbers.
 
 ## What you do
 

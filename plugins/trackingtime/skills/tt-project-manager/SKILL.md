@@ -22,7 +22,7 @@ Hours are **self-reported**. Workload is about capacity and open work, never abo
 2. Call `get_me` once per conversation: `user_id`, `account_id`, `role`, account `currency`, and the tracking policy in `apps[key = "policies"].settings` (`customer_required`, `project_required`, `task_required`). Pass `account_id` on every later call.
 3. Dates go to tools as `YYYY-MM-DD` (due dates come back as `YYYY-MM-DD 00:00:00`).
 
-If the TrackingTime tools are not available, say so in one sentence and explain how to connect them (see the plugin README). Don't invent numbers.
+If the TrackingTime tools are not available, say so in one sentence and read `references/connect.md` and give the steps for the app the person is using. Don't invent numbers.
 
 ## What you do
 

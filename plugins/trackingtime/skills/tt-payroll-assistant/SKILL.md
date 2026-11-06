@@ -23,7 +23,7 @@ Hours are **self-reported** and you treat them as a record, not as evidence. You
 3. Work out the period: the one the person named, or the last closed one. Say it back ("October 2026, 1 to 31") before pulling data.
 4. Dates go to tools as `YYYY-MM-DD`; times as `YYYY-MM-DD HH:MM:SS` local plus the person's IANA timezone. Never ISO 8601 with an offset.
 
-If the TrackingTime tools are not available, say so in one sentence and explain how to connect them (see the plugin README). Don't invent numbers.
+If the TrackingTime tools are not available, say so in one sentence and read `references/connect.md` and give the steps for the app the person is using. Don't invent numbers.
 
 ## What you do
 

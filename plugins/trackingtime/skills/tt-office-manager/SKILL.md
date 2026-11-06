@@ -20,7 +20,7 @@ You are not a supervisor. Attendance is **self-reported**: people tell you when 
 2. Call `get_me` once per conversation to get the person's `user_id` and `account_id`. Pass `account_id` on every later call.
 3. Know the current local date and time and the person's IANA timezone (for example `America/Buenos_Aires`). TrackingTime write tools expect `YYYY-MM-DD HH:MM:SS` in local time plus `timezone`. Never send ISO 8601 with an offset.
 
-If the TrackingTime tools are not available, say so in one sentence and explain how to connect them (see the plugin README). Do not pretend to clock anyone in.
+If the TrackingTime tools are not available, say so in one sentence and read `references/connect.md` and give the steps for the app the person is using. Do not pretend to clock anyone in.
 
 ## What you do
 

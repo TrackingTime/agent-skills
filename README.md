@@ -105,6 +105,8 @@ Each agent has a `config.md` next to its `SKILL.md`: default task, language, who
 
 Each agent also ships `references/connector-notes.md`: what the TrackingTime connector can't do yet and the workaround the agent uses. We update it as the connector improves.
 
+And `references/connect.md`: the connector URL and the steps to add it in each app, so the agent can tell the person what to do when the TrackingTime tools aren't in the conversation.
+
 ## Repository layout
 
 ```
