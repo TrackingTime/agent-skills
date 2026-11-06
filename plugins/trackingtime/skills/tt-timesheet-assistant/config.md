@@ -1,4 +1,4 @@
-# Office Manager · company settings
+# Timesheet Assistant · company settings
 
 Edit the values after each colon. Leave a value empty to use the default in brackets.
 This file is the only thing you need to change to adapt the agent to your company.
@@ -23,13 +23,6 @@ This file is the only thing you need to change to adapt the agent to your compan
 - Name breaks in the entry notes (for example "Lunch"): [yes]
 - Remind after a break of this many minutes, if the person comes back to the chat: [60]
 
-## Who's in today (managers)
-
-- Who may ask "who's in today": [anyone with Admin or Manager role in TrackingTime]
-- Show what each person is working on (task and project): [no — show status and hours only]
-- Check who is tracking right now, one call per person, when the team has at most this many people: [15]
-- Show people on time off and why (vacation, sick leave…): [show "on leave" only, never the reason]
-
 ## Fill my timesheet
 
 - Minimum entry length in minutes: [15]
@@ -40,3 +33,15 @@ This file is the only thing you need to change to adapt the agent to your compan
 
 - Compare against the person's work schedule: [yes]
 - Where to post it (only if a Slack or Teams connector is available in this assistant): [don't post, show it in the chat]
+
+## My period
+
+- A day counts as logged when it has at least this many minutes of worked time: [1]
+- Hours expected per day for people with no schedule: [8, Monday to Friday]
+- Default period when none is named: [this month, up to today]
+
+## Time off
+
+- Default start and end times for a full day when the person has no schedule: [09:00 to 18:00]
+- Half day means: [morning 09:00 to 13:00, afternoon 14:00 to 18:00]
+- Who approves requests (name or role, shown to the person after a request): [the account's approvers]

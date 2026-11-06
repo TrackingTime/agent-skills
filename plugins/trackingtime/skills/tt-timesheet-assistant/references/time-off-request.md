@@ -1,6 +1,6 @@
 # Time off request and balance
 
-For the person asking about **their own** time off. Managers can run it for someone else only when they name the person and `config.md` allows approvals for them.
+For the person asking about **their own** time off: balance, a new request, a change or a cancellation. Approving other people's requests is the HR Manager's job.
 
 ## Balance
 
@@ -18,7 +18,7 @@ For the person asking about **their own** time off. Managers can run it for some
 4. **Holidays inside the range.** `list_holidays` with `from`, `to`. Mention them; the calculation already skips them.
 5. **Confirm.** "Request 3 working days of Vacation, 10 to 12 November? You'd have 6 left. It needs approval from your manager." Mention if the balance would go negative; don't block, the policy decides.
 6. **Write.** `create_timeoff` with `user_id`, `policy_id`, `from`, `to`, `notes` (the reason only if the person gave one), `confirm: true`.
-7. **Reply** with the status: `PENDING` when the policy needs approval, otherwise `APPROVED`. Say who approves, if `config.md` names them.
+7. **Reply** with the status: `PENDING` when the policy needs approval, otherwise `APPROVED`. Say who approves, from `config.md`.
 
 ## Cancel or change
 
@@ -27,4 +27,4 @@ For the person asking about **their own** time off. Managers can run it for some
 ## Don'ts
 
 - Don't ask for the reason. Record it only if offered.
-- Don't tell the person how much time a colleague has left.
+- Don't tell the person how much time a colleague has left, and don't request time off for someone else.

@@ -33,3 +33,15 @@ What the TrackingTime MCP connector does and doesn't do today. Read this before 
 
 - `list_holidays` ignores `year`; pass `from` and `to`.
 - `list_timecards` needs `users: [{"id": <user_id>}]`.
+
+## Time off (for the request workflow)
+
+- `list_timeoff_policies` fails (the connector doesn't send the `status` the API wants). Get the person's policies from `list_timeoff_balances` instead.
+- `get_timeoff_balance` returns only `{"status": "SYNCED"}`. Use `list_timeoff_balances` and pick the cycle that covers today.
+- `calculate_timeoff_amount` needs `from` and `to` with a time (`YYYY-MM-DD HH:MM:SS`); a bare date is rejected.
+- `list_holidays` ignores `year`; pass `from` and `to`.
+
+## Time cards (for My period)
+
+- `get_timecard` computes the days live: `regular_seconds`, `extra_seconds`, `break_seconds`, `timeoff_seconds`, `holiday_seconds`, `day_type`. Worked = regular + extra; `total_seconds` is the clock-in to clock-out span. Today's time card can lag behind entries made in the last minutes.
+- Whether Time Cards are on: `get_me` → `apps[key = "timecards"].status`.
