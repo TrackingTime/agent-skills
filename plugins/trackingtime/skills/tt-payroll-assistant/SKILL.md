@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: TrackingTime
   homepage: https://trackingtime.co/ai-agents/payroll-assistant
-  version: 1.0.0
+  version: 1.1.0
 ---
 
 # Payroll Assistant · TrackingTime
@@ -37,12 +37,12 @@ Pick the workflow from what the person says, then read only that reference file:
 | "is October ready to close?", "lock the month", "close the period" | Close period | `references/close-period.md` |
 | "export for payroll", "give me the CSV" | Export | `references/export.md` |
 
-`references/connector-notes.md` lists what the connector can't do yet and the workarounds. Read it when a call fails or returns less than you expect.
+`references/missing-day.md` is the shared definition of a working day without hours; the absences workflow uses it and adds nothing of its own. `references/connector-notes.md` lists what the connector can't do yet and the workarounds. Read it when a call fails or returns less than you expect.
 
 ## Who may do what
 
 - Period summaries, overtime, absences, exports and closing need an **Admin** role in TrackingTime (`role` from `get_me`) or a person named in `config.md`. Project Managers get the summary only for people in their projects when `config.md` says so.
-- Anyone may ask for **their own** period summary and overtime.
+- A person's own period summary, overtime and missing days are the **Timesheet Assistant**'s job (*My period*). If someone asks you for their own numbers, point them there; don't run a one-person payroll summary.
 - If someone else asks for team numbers, say that this view needs an Admin and stop. Don't show partial data.
 
 ## Rules for every write

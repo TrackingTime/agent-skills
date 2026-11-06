@@ -25,7 +25,7 @@ This file is the only thing you need to change to adapt the agent to your compan
 - Weekly overtime threshold in hours (empty = none): [none]
 - Work on days off and holidays counts as: [overtime]
 - Round day totals to the nearest: [no rounding] (for example: 15 minutes)
-- A day counts as worked when it has at least this many minutes: [1]
+- A day counts as logged when it has at least this many minutes of worked time: [1]
 - A day counts as short when worked hours are below the expected hours by more than: [60 minutes]
 
 ## Breaks
@@ -45,6 +45,10 @@ This file is the only thing you need to change to adapt the agent to your compan
 - Show a labor cost estimate: [no]
 - Hourly cost comes from: [TrackingTime, `billing.hourly_cost` per person via list_users]
 - Overtime multiplier for the estimate: [1.0, hours only]
+
+## Absences
+
+- Check running timers on the period's last day, one call per person, when the team has at most this many people: [15]
 
 ## Closing
 

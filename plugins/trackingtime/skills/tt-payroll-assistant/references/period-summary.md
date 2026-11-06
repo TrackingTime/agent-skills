@@ -15,8 +15,8 @@ One row per person for a pay period: days expected, days worked, regular hours, 
    - Overtime = `extra_seconds`, plus, when `config.md` turns it on, `max(0, worked − expected)` on work days.
    - Leave = `timeoff_seconds`. Paid or unpaid according to the type names in `config.md`; the type is in `list_timeoffs` (`time_off_type.name`) for the same range if you need to split it.
    - Holiday = `holiday_seconds`.
-   - Day worked = worked ≥ the minimum in `config.md`.
-   - Unexplained absence = `is_workable` true, `day_type` `WORK_DAY`, worked = 0, leave = 0.
+   - Day worked = worked at or above the minimum in `config.md`.
+   - Unexplained absence = a day `missing-day.md` marks as missing (see `absences.md`).
 5. **Period totals per person.** Sum the days. Apply rounding from `config.md` to the period totals only. Days expected = count of `WORK_DAY` days plus partial `TIMEOFF` days.
 6. **Cost estimate** (only when `config.md` allows): worked hours × `hourly_cost`, overtime hours × `hourly_cost` × multiplier. Label it "estimate" every time.
 

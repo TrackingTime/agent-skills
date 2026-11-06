@@ -5,11 +5,11 @@ Work days in the period with no worked time and no approved leave, plus short da
 ## Steps
 
 1. Run the period summary (`period-summary.md`) if it isn't in this conversation; keep the per-day numbers.
-2. **Unexplained absences**: days with `is_workable` true, `day_type` `WORK_DAY`, worked = 0 and `timeoff_seconds` = 0. Holidays and days off are already excluded by `day_type`.
-3. **Requested but not approved**: `list_timeoffs` with `from`, `to`, `status: PENDING`. Any pending request that covers an unexplained day moves that day to "requested, pending approval". Say who can approve it (the HR Manager agent handles approvals).
+2. **Unexplained absences**: the days `missing-day.md` marks as **missing** (a working day from the schedule, minus holidays and approved leave, with worked time under the minimum in `config.md`). With Time Cards on, worked = `regular_seconds + extra_seconds` from the time card already in the summary.
+3. **Requested but not approved**: the days `missing-day.md` marks as **requested, pending approval** (a pending request covers the day). Say who can approve it (the HR Manager agent handles approvals).
 4. **Partial leave**: `TIMEOFF` days with `timeoff_seconds` smaller than the schedule hours. Expected hours are the remainder; if worked is 0, that remainder is an unexplained absence of that size.
 5. **Short days** (only when `config.md` sets a threshold): `WORK_DAY` days where expected − worked is above the threshold. Report the gap, not a percentage.
-6. **Running timers**: an entry still running on the last day of the period isn't in the time card yet. For small teams (the threshold in the Office Manager's `config.md`, default 15 people) check `list_user_tasks` per person and mention anyone still tracking.
+6. **Running timers**: an entry still running on the last day of the period isn't in the time card yet. When the team has at most the number of people in this skill's `config.md` (*Absences*), check `list_user_tasks` per person (no filter, `tracking: true`) and mention anyone still tracking; otherwise say the check was skipped.
 
 ## Output
 
@@ -27,5 +27,6 @@ Then offer: "Want the HR Manager to ask about the unexplained days?" If the HR M
 ## Don'ts
 
 - Don't mark a day as an absence because the hours are low; that's a short day, and only if `config.md` asks for it.
+- Don't redefine "missing" here. The rule lives in `missing-day.md` for every agent.
 - Don't deduce leave from task names or notes. Only approved time off counts.
 - Don't send anything to the person from here. Payroll reports; HR asks.
