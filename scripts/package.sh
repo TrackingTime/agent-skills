@@ -6,6 +6,7 @@
 # Each per-agent ZIP has the skill folder at its root, which is what those apps expect.
 set -euo pipefail
 cd "$(dirname "$0")/.."
+bash scripts/check-shared-refs.sh
 mkdir -p dist
 rm -f dist/*.zip
 for dir in plugins/trackingtime/skills/*/; do
