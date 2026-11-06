@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # Builds one ZIP per skill in dist/, ready to upload to Claude, ChatGPT or Gemini,
 # plus dist/trackingtime-agents.zip with every agent folder for coding agents
-# (.agents/skills/) and for anyone who wants all five at once.
+# (.agents/skills/) and dist/trackingtime-plugin.zip, the whole plugin for
+# Claude Team and Enterprise organization uploads.
 # Each per-agent ZIP has the skill folder at its root, which is what those apps expect.
 set -euo pipefail
 cd "$(dirname "$0")/.."
@@ -19,3 +20,11 @@ cp plugins/trackingtime/README.md "$bundle_dir/README.md"
 (cd "$(dirname "$bundle_dir")" && zip -qr "$OLDPWD/dist/trackingtime-agents.zip" "trackingtime-agents" -x '*.DS_Store')
 rm -rf "$(dirname "$bundle_dir")"
 echo "dist/trackingtime-agents.zip"
+# Plugin ZIP for Claude Team and Enterprise (Organization settings > Plugins & skills > Upload a plugin):
+# the plugin folder at the root, with .claude-plugin/plugin.json, .mcp.json, commands/ and skills/.
+plugin_dir="$(mktemp -d)/trackingtime"
+mkdir -p "$plugin_dir"
+cp -R plugins/trackingtime/. "$plugin_dir/"
+(cd "$(dirname "$plugin_dir")" && zip -qr "$OLDPWD/dist/trackingtime-plugin.zip" "trackingtime" -x '*.DS_Store')
+rm -rf "$(dirname "$plugin_dir")"
+echo "dist/trackingtime-plugin.zip"

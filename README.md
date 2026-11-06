@@ -66,6 +66,16 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `office-manager.zip`, `hr-manager.zip`, `payroll-assistant.zip`, `account-manager.zip` or `project-manager.zip`).
 4. Turn the skill on.
 
+### Claude Team and Enterprise (everyone at once)
+
+An Owner uploads the whole plugin once and every member gets all five agents, the commands and the connector:
+
+1. Organization settings → Plugins & skills → **Add** → **Upload a plugin**.
+2. Choose `trackingtime-plugin.zip` from the latest GitHub Release (under 200 MB; the plugin folder is the ZIP root).
+3. Set the distribution to "Installed by default" or "Available to install". Members find it under Customize → Plugins.
+
+Members who sign in to Claude Code with the same account get it there too.
+
 ### ChatGPT
 
 1. Settings → Apps & Connectors → Advanced → turn on **Developer mode** (Plus, Pro, Business, Enterprise, Edu).
@@ -114,7 +124,7 @@ agent-skills/
 │       ├── account-manager/
 │       └── project-manager/
 ├── perplexity/                         Agent instructions for Perplexity Spaces
-├── scripts/package.sh                  Builds dist/<agent>.zip for chat apps and dist/trackingtime-agents.zip with all five
+├── scripts/package.sh                  Builds dist/<agent>.zip, dist/trackingtime-agents.zip and dist/trackingtime-plugin.zip
 └── dist/                               Built ZIPs (git-ignored; attached to each GitHub Release)
 ```
 
