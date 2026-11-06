@@ -10,9 +10,9 @@ For a manager. Shows, per person, which working days have entries over a window.
 
 ## Steps
 
-1. People, working days, holidays and approved leave as in `hours-check.md` steps 1 and 2, for the whole range.
-2. Entries: `list_filtered_events` with `parameters: ["user"]`, **one call per week** (a month in one call is too large on bigger teams). Build a set of (person, date) with entries above the minimum.
-3. Per person: logged working days ÷ scheduled working days (holidays and leave excluded). Current streak (logged or missed).
+1. People: `list_users` (`filter: ACTIVE`), minus the people under *skip* in `config.md`.
+2. Per-day verdict for every person and day in the range from `missing-day.md` (working days, source, minimum, pending requests). With Time Cards off, call `list_filtered_events` **one week at a time**; a month in one call is too large on bigger teams. With Time Cards on, one `get_timecard` per person for the range.
+3. Per person: logged working days ÷ working days (holidays and leave excluded, days "requested, pending approval" excluded too). Current streak (logged or missing).
 4. Team: average of the personal rates, and the share of people at 100%.
 
 ## Weekly layout
@@ -26,7 +26,7 @@ Weekly compliance · 2–6 November
 | Bruno |  ●  |  –  |  –  |  ●  |  ●  |  60% |
 | Carla |  ●  |  ●  |  L  |  L  |  ●  | 100% |
 
-● logged · – missing · L on leave · H holiday · · not scheduled
+● logged · – missing · P requested, pending approval · L on leave · H holiday · · not scheduled
 Team: 87% · 7 of 9 people complete
 ```
 

@@ -11,7 +11,7 @@ What the TrackingTime MCP connector does and doesn't do today for HR work.
 - `get_events_summary` returns an empty result; `get_events_stats` fails. Add up `d` yourself.
 - Time Cards (`get_timecard`, `list_timecards`) lag behind the day's entries. Don't use them to decide whether today is logged.
 
-## Time off
+## Time off (approvals; requests live in the Timesheet Assistant)
 
 - `list_timeoff_policies` fails (the connector doesn't send the `status` the API wants). Get the person's policies from `list_timeoff_balances` instead.
 - `get_timeoff_balance` returns only `{"status": "SYNCED"}`. Use `list_timeoff_balances` and pick the current cycle.

@@ -17,13 +17,20 @@ This file is the only thing you need to change to adapt the agent to your compan
 - People the agent may treat as HR even without an Admin role (names or emails):
 - People to skip in hours checks (bots, test users, contractors who don't log hours):
 
+## Who's in and out
+
+- Who may ask who's in today and who's out: [anyone with an Admin or Project Manager role in TrackingTime]
+- Show what each person is working on (task and project): [no, status and hours only]
+- Check who is tracking right now, one call per person, when the team has at most this many people: [15]
+- Show the type of leave (vacation, sick leave…) to managers: [no, say "on leave" or "out" only]
+
 ## Hours checks
 
-- A day counts as logged when it has at least this many minutes of entries: [1]
+- A day counts as logged when it has at least this many minutes of worked time: [1]
 - Count today as missing only after this local time: [17:00]
 - Escalate to a manager after this many consecutive missed working days: [3]
 - Look back this many working days when computing streaks: [10]
-- Treat people with no work schedule as working: [Monday to Friday]
+- Hours expected per day for people with no schedule: [8, Monday to Friday]
 
 ## Reminders
 
@@ -33,12 +40,9 @@ This file is the only thing you need to change to adapt the agent to your compan
 - Mention the tool by name in reminders ("in TrackingTime"): [yes]
 - Days when reminders are not sent (weekends are always skipped):
 
-## Time off
+## Time off approvals
 
-- Who may approve time off: [anyone with Admin or Project Manager role in TrackingTime]
-- Show the type of leave (vacation, sick leave…) to people other than the person and the managers: [no — say "out" only]
-- Default start and end times for a full day when the person has no schedule: [09:00 to 18:00]
-- Half day means: [morning 09:00 to 13:00, afternoon 14:00 to 18:00]
+- Who may approve time off: [anyone with an Admin or Project Manager role in TrackingTime]
 
 ## Reports
 
