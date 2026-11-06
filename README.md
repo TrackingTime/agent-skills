@@ -10,13 +10,13 @@ Official AI agents for [TrackingTime](https://trackingtime.co). Each agent cover
 
 | Agent | Role | Status |
 |---|---|---|
-| **Office Manager** | Clock in and out, breaks, who's in today, fill your timesheet, end-of-day report | Available |
-| **HR Manager** | Hour-logging reminders and escalation, compliance reports, time off requests, balances and approvals, holidays, who's out | Available |
+| **Timesheet Assistant** | Your own time: clock in and out, breaks, fill your timesheet, end-of-day report, your hours and overtime for the period, time off requests and balance | Available |
+| **HR Manager** | For managers: who's in today and who's out, hour-logging reminders and escalation, compliance reports, time off approvals, holidays | Available |
 | **Payroll Assistant** | Pay period hours per person, overtime, absences, period close and lock, CSV for payroll | Available |
 | **Account Manager** | Retainer burn alerts, client reports, unbilled hours, invoices, expenses | Available |
 | **Project Manager** | Projects from a brief, project status, profitability, team workload | Available |
 
-One install includes all five agents. Turn on only the roles you need.
+One install includes all five agents. Turn on only the roles you need. They are split by who uses them: the Timesheet Assistant is for each person about their own time; the HR Manager and the Project Manager are for managers about the team; the Payroll Assistant and the Account Manager are for admins at period close and billing time.
 
 ## What you need
 
@@ -41,11 +41,12 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 | `/trackingtime:clock-out [time]` | Stop and see today's total |
 | `/trackingtime:whos-in` | Who's in today (managers) |
 | `/trackingtime:log-my-day [description]` | Fill your timesheet |
+| `/trackingtime:my-hours [period]` | Your hours, overtime and missing days |
 | `/trackingtime:hours-check [day or week]` | Who hasn't logged hours, with streaks (managers) |
 | `/trackingtime:remind-team` | Draft and send reminders by Slack or Teams, escalate after 3 days (managers) |
 | `/trackingtime:compliance-report [daily, weekly, monthly]` | Timesheet compliance report (managers) |
 | `/trackingtime:time-off [dates or "balance"]` | Request time off or check your balance |
-| `/trackingtime:whos-out [range]` | Who's out this week and upcoming holidays |
+| `/trackingtime:whos-out [range]` | Who's out this week and upcoming holidays (managers) |
 | `/trackingtime:payroll-summary [period] [csv]` | Payroll hours per person for a pay period (admins) |
 | `/trackingtime:overtime-check [period]` | Who has overtime, how much, which days (admins) |
 | `/trackingtime:absences [period]` | Unexplained absences, pending leave, short days (admins) |
@@ -63,7 +64,7 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 
 1. Settings → Capabilities → turn on **Code execution and file creation**.
 2. Settings → Connectors → **Add custom connector**. Name: TrackingTime. URL: `https://mcp.trackingtime.co/mcp`. Connect and sign in.
-3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `tt-office-manager.zip`, `tt-hr-manager.zip`, `tt-payroll-assistant.zip`, `tt-account-manager.zip` or `tt-project-manager.zip`).
+3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `tt-timesheet-assistant.zip`, `tt-hr-manager.zip`, `tt-payroll-assistant.zip`, `tt-account-manager.zip` or `tt-project-manager.zip`).
 4. Turn the skill on.
 
 ### Claude Team and Enterprise (everyone at once)
@@ -103,6 +104,8 @@ Or download `trackingtime-agents.zip` from the latest GitHub Release, unzip it i
 
 Each agent has a `config.md` next to its `SKILL.md`: default task, language, who the managers are, when to escalate, what managers can see, pay period and overtime rules, retainer alert thresholds, what client reports may show. Edit it before uploading. Nothing else needs to change.
 
+The Timesheet Assistant, the HR Manager and the Payroll Assistant share one definition of a working day without hours, `references/missing-day.md`, copied into each of them; `scripts/check-shared-refs.sh` fails when the copies drift.
+
 Each agent also ships `references/connector-notes.md`: what the TrackingTime connector can't do yet and the workaround the agent uses. We update it as the connector improves.
 
 And `references/connect.md`: the connector URL and the steps to add it in each app, so the agent can tell the person what to do when the TrackingTime tools aren't in the conversation.
@@ -117,7 +120,7 @@ agent-skills/
 │   ├── .mcp.json                       TrackingTime connector
 │   ├── commands/                       Slash commands
 │   └── skills/
-│       ├── tt-office-manager/             One folder per agent
+│       ├── tt-timesheet-assistant/        One folder per agent
 │       │   ├── SKILL.md
 │       │   ├── config.md
 │       │   └── references/             One file per workflow, plus connector notes

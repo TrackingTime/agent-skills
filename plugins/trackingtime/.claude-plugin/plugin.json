@@ -1,7 +1,7 @@
 {
   "name": "trackingtime",
-  "version": "1.4.0",
-  "description": "Official TrackingTime agents. Your back office, with the roles you need — Office Manager (clock in and out, breaks, who's in today, fill your timesheet, end-of-day report), HR Manager (hour-logging reminders, escalation, compliance reports, time off requests, approvals, holidays, who's out), Payroll Assistant (pay period hours per person, overtime, absences, period close and lock, CSV for payroll), Account Manager (retainer burn alerts, client reports, unbilled hours, invoices, expenses) and Project Manager (projects from a brief, project status, profitability, team workload).",
+  "version": "2.0.0",
+  "description": "Official TrackingTime agents. Your back office, with the roles you need — Timesheet Assistant for each person's own time (clock in and out, breaks, fill your timesheet, end-of-day report, your hours and overtime, time off requests), HR Manager for managers (who's in and out, hour-logging reminders, escalation, compliance reports, time off approvals, holidays), Payroll Assistant (pay period hours per person, overtime, absences, period close and lock, CSV for payroll), Account Manager (retainer burn alerts, client reports, unbilled hours, invoices, expenses) and Project Manager (projects from a brief, project status, profitability, team workload).",
   "author": {
     "name": "TrackingTime",
     "url": "https://trackingtime.co"

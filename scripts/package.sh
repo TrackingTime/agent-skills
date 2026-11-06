@@ -7,6 +7,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 bash scripts/check-shared-refs.sh
+python3 scripts/check-skills.py
 mkdir -p dist
 rm -f dist/*.zip
 for dir in plugins/trackingtime/skills/*/; do
