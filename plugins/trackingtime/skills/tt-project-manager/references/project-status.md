@@ -5,8 +5,11 @@ Where one project stands: hours against the estimate, delivery date, open and ov
 ## Steps
 
 1. **Project.** Match the name against `list_projects` (`filter: ACTIVE`, `page_size: 200`); if several match, ask. Keep `estimated_time` (hours), `accumulated_time` (seconds), `delivery_date`, `customer`, `billing.is_billable`, `is_retainer`.
-2. **Tasks.** `get_project` with `include_tasks: true` and `include_task_lists: true`. Loose tasks are in `tasks`; tasks inside lists are in `task_lists[].tasks`. For each task: `name`, `is_archived`, `due_date`, `estimated_time`, `accumulated_time`, `users` (owner `status` `ACTIVE`/`INACTIVE`, `accumulated_time` per owner), `list_name`.
-3. **Period activity** (default: this week, or the range asked): `list_filtered_events` with `date_range`, `parameters: ["project", "task", "user"]`, `filters: [{"by": "project", "operator": "is", "value": ["<project name>"]}]`. Sum `d` per task and per person.
+2. **Tasks.** Two ways, pick by size:
+   - **Small project** (`active_tasks + archived_tasks` from `list_projects` under about 40): `get_project` with `include_tasks: true` and `include_task_lists: true`. Loose tasks are in `tasks`; tasks inside lists are in `task_lists[].tasks`. For each task: `name`, `is_archived`, `due_date`, `estimated_time`, `accumulated_time`, `users` (owner `status` `ACTIVE`/`INACTIVE`, `accumulated_time` per owner), `list_name`. Drop `is_archived: true` tasks yourself; the call returns them too.
+   - **Anything bigger**: that call returns every task ever, archived included, at about 2 KB each (a project with 171 tasks came back as 400,000 characters), which breaks the conversation. Use `get_project` **without** tasks for the header and `coworkers`, then one `list_user_trackables` per member with `user_id`, `project_id` and `include_tasks: true`: it returns only active tasks assigned to that person, about 150 bytes each (`id`, `name`, `estimated_time`, `accumulated_time`, `due_date`). Merge by task `id`. Say that tasks assigned to nobody aren't in this view and that `accumulated_time` there is the member's own time; the project total comes from the header.
+   - Count open tasks from the list you built. The project's `active_tasks` field can differ from it (15 vs 13 in a test); use the count.
+3. **Period activity** (default: this week, or the range asked): `list_filtered_events` with `date_range`, `parameters: ["project", "task", "user"]`, `filters: [{"by": "project", "operator": "is", "value": ["<project name>"]}]`. Sum `d` per task and per person. Rows whose `tid` isn't in the task list you built (tasks of type `GHOST`, created by a timer with only a name, or tasks assigned to nobody) are added up into one line, **time on tasks not in the project list**, with their names from `t`; don't drop them and don't invent a task for them.
 4. **Numbers.**
    - Used = `accumulated_time` ÷ 3600. Used % = used ÷ estimate when the estimate is above 0; otherwise "no estimate".
    - Remaining = estimate − used (can be negative: "over by N h").
@@ -33,3 +36,4 @@ Then offer: reassign or reschedule the overdue ones (`project-from-brief.md`, "C
 - Don't call a project "at risk" or "healthy". Give the numbers and the warnings `config.md` defines.
 - Don't attribute overrun to a person. "Wireframes: 22 h of 16 h estimated" is the sentence.
 - Don't use `list_tasks` for a project's tasks; it ignores the project filter.
+- Don't ask for a big project's tasks through `get_project`; see step 2.

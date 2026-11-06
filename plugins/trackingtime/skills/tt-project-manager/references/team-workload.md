@@ -8,7 +8,7 @@ Who has room this week and who is over: capacity from schedules, hours logged, o
 2. **People.** `list_users` (`filter: ACTIVE`): `id`, `name`, `user_group_name` (team), `schedule` (hours per weekday). Drop the people in *skip*. Filter by team when asked.
 3. **Capacity** per person = sum of schedule hours over the week's days, minus hours for holidays (`list_holidays` with `from`/`to`; a holiday with an empty `users` list applies to everyone) and approved time off (`list_timeoffs` with `from`, `to`, `status: APPROVED`; use `hours` on the request). No schedule → the default in `config.md`.
 4. **Logged** per person = `list_filtered_events` for the week with `parameters: ["user", "project"]`, sum `d` by `uid`, and by project for the detail. Running timers aren't included.
-5. **Open work** per person (only when the team is within the size in `config.md`): `list_user_tasks` with `user_id`, `sort_by: "due_date"`, `page_size: 50`. Count open tasks, those due this week, and those overdue (`due_date` before today). One call per person.
+5. **Open work** per person (only when the team is within the size in `config.md`): `list_user_tasks` with `user_id`, `sort_by: "due_date"`, `page_size: 50`. The list also carries tasks where the person is `INACTIVE` and `EVERYONE` tasks nobody picked up, so keep only tasks where this `user_id` appears in `users[]` with `status: "ACTIVE"`. Then count open tasks, those due this week, and those overdue (`due_date` before today). One call per person.
 6. **Reading** (thresholds from `config.md`):
    - over capacity: logged > capacity × (1 + margin), or planned hours on due tasks exceed the remaining capacity;
    - has room: logged below the share of capacity by mid-week with few open tasks;
