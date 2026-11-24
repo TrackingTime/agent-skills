@@ -4,7 +4,7 @@ A short summary of the person's own day, built from their entries.
 
 ## Steps
 
-1. `list_events` (`filter: USER`, `id: <user_id>`, `from` = `to` = today, `timezone`, `order: asc`). Add up `d` (seconds) for the total and per project (`p`). Don't use `get_events_summary` or the Time Card for today (see `connector-notes.md`).
+1. `list_events` (`filter: USER`, `id: <user_id>`, `from` = `to` = today, `timezone`, `order: asc`). Add up `d` (seconds) for the total and per project (`p`). Don't use the Time Card for today (see `connector-notes.md`).
 2. Check for a running timer with `list_user_tasks` (no filter, `tracking: true`). It isn't in the entry list until it stops.
 3. If `config.md` says to compare with the schedule: `get_user_schedule` (`user_id`) → expected hours for today's weekday (`mon`, `tue`… fields).
 4. Build the report:

@@ -1,6 +1,6 @@
 # Export
 
-A CSV of the period summary for the payroll system. The connector's own `export_timecards` doesn't work yet (see `connector-notes.md`), so the file is built from the summary.
+A CSV of the period summary for the payroll system. The connector has no export tool, so the file is built from the summary.
 
 ## Steps
 

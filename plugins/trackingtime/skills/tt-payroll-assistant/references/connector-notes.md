@@ -11,9 +11,8 @@ What the TrackingTime MCP connector does and doesn't do today for payroll work.
 - A month for one person is a large response (31 days with entries). Call one person at a time and keep only the day fields.
 - `generate_timecard` returns the same computed days; `save_days: true` would store them (not exercised). Leave `save_days` out.
 - `list_timecards` needs `users: [{"id": N}, …]` (a bare list of numbers fails). It returns `status`, `total_working_days`, `total_pending_days` and so on, but `regular_seconds` and friends stay at 0 and `timecard_days` is empty unless days were saved or submitted. Use it for status, not for hours.
-- `get_timecards_count` (`from`, `to`) works: `{"submitted": N, "pending_submission": N}`.
-- `export_timecards` is unusable: the connector rejects any `data` value, and without it the API says `data` is missing. Build the CSV from `get_timecard`.
-- `list_timecard_logs` → "The action you requested doesn't exist".
+- There is no count tool: count submitted and pending people from the `status` values of `list_timecards`.
+- There is no export tool. Build the CSV from `get_timecard` (see `export.md`).
 - `lock_user_events` (`data: [{user_id, lock_date}]`, `confirm: true`) and `save_timecard_day` were not exercised in testing. Verify a lock with `list_users` → `lock_date`.
 
 ## Schedules and people
@@ -38,4 +37,4 @@ What the TrackingTime MCP connector does and doesn't do today for payroll work.
 
 ## Summaries
 
-- `get_events_summary` returns an empty result and `get_events_stats` fails. Sum the day fields yourself.
+- `get_events_stats` fails. Sum the day fields yourself.

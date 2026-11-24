@@ -30,7 +30,7 @@ Expenses: stock photos USD 120 (billable)
 
 ## Shareable link
 
-TrackingTime's shared reports (docs) have a public link. `list_reports` shows existing ones (`doc_type`, `public_token`, `live`); creating one through `create_report` is not reliable yet (see `connector-notes.md`). To give the client a live link, the person creates the report in the web app (Reports → Share) and can refresh its token here with `refresh_report_share_token` after a yes if the link leaked.
+TrackingTime's shared reports have a public link, but the connector has no tools for them. To give the client a live link, the person creates the report in the web app (Reports → Share); a link that leaked is replaced there too.
 
 ## Don'ts
 

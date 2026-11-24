@@ -50,7 +50,7 @@ More tasks than the limit in `config.md`: create the first batch, read back, ask
 
 - Reassign, reschedule, re-estimate: `update_task` with `confirm: true` and only the fields that change (`users`, `due_date`, `estimated_time`, `project_id` to move it). Show old → new first.
 - Several tasks at once: one `update_task` per task. `batch_update_tasks` is a destructive batch write that wasn't exercised; avoid it.
-- Done tasks: `archive_task` after a yes. Archiving keeps the time; deleting doesn't, so never delete.
+- Done tasks: `archive_tasks_batch` with `task_ids` (a list, even for one task) and `confirm: true` after a yes on the tasks shown by name. Archiving keeps the time and can be undone with `restore_tasks_batch`; deleting doesn't keep it, so never delete.
 
 ## Don'ts
 

@@ -7,7 +7,7 @@ Check that a pay period is ready, then lock it so entries up to the lock date ca
 Run all of it and show one list before asking anything:
 
 1. **Period summary** (`period-summary.md`) for the period, if not already in this conversation.
-2. **Submission status**: `get_timecards_count` with `from` and `to` gives `submitted` and `pending_submission`. `list_timecards` with `from`, `to` and `users: [{"id": N}, …]` gives each person's `status` and `total_working_days`. Note: the per-period seconds in that call stay at 0 unless days were saved; use the summary for hours.
+2. **Submission status**: `list_timecards` with `from`, `to` and `users: [{"id": N}, …]` gives each person's `status` and `total_working_days`. Count submitted and pending from those statuses. Note: the per-period seconds in that call stay at 0 unless days were saved; use the summary for hours.
 3. **Already locked**: `list_users` → each person's `lock_date`. People already locked on or after the period end are done.
 4. **Unexplained absences** and **pending time off** from `absences.md`.
 5. **Running timers** on the period's last day (see `absences.md`, step 6).

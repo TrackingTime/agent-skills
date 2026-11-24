@@ -9,7 +9,7 @@ Only people allowed by `config.md` (default: Admin or Project Manager). If `list
 ## Today
 
 1. `list_users` (`filter: ACTIVE`) → everyone, with each person's `schedule`. Drop the people in *skip* in `config.md`.
-2. **Today's hours:** `list_filtered_events` with `date_range: {period: "custom_range", start: today, end: today}` and `parameters: ["user"]`; one compact row per entry with `uid` and `d` (seconds); group by person. Fallback: `list_company_events` (`from` = `to` = today, paginate until a page comes back short).
+2. **Today's hours:** `list_filtered_events` with `date_range: {period: "custom_range", start: today, end: today}` and `parameters: ["user"]`; one compact row per entry with `uid` and `d` (seconds); group by person. It has no pagination; on a big team, if the response is cut, ask again per group of people with a `user` filter (display names).
 3. **Working now:** the running entry isn't in those lists. If the team has at most the number of people in `config.md`, call `list_user_tasks` (`user_id`, no filter) per person and mark those with a task where `tracking: true`. For bigger teams, skip it and say that "working now" is available on request per person. Don't use `filter: TRACKING`: it fails today.
 4. `list_timeoffs` with `from` = `to` = today; keep `time_off_status` `APPROVED` or `AUTO_APPROVED`.
 5. `list_holidays` with `from` = `to` = today. If today is a holiday for everyone, say so and stop grouping.

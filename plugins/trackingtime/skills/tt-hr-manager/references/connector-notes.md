@@ -8,7 +8,7 @@ What the TrackingTime MCP connector does and doesn't do today for HR work.
 - `list_filtered_events` `filters` work with display names, not ids: `{"by": "user", "operator": "is", "value": ["Ana García"]}`. An id returns nothing and a bare string is rejected.
 - `list_events` with `filter: USER` is the cheap call for one person over a range. The time part of `from`/`to` is ignored; whole days come back.
 - Running timers are not in either list until they stop. A person with only a running timer looks like "no entries yet".
-- `get_events_summary` returns an empty result; `get_events_stats` fails. Add up `d` yourself.
+- `get_events_stats` fails. Add up `d` yourself.
 - Time Cards (`get_timecard`, `list_timecards`) lag behind the day's entries. Don't use them to decide whether today is logged.
 
 ## Time off (approvals; requests live in the Timesheet Assistant)
@@ -17,7 +17,7 @@ What the TrackingTime MCP connector does and doesn't do today for HR work.
 - `get_timeoff_balance` returns only `{"status": "SYNCED"}`. Use `list_timeoff_balances` and pick the current cycle.
 - `calculate_timeoff_amount` needs `from` and `to` with a time (`YYYY-MM-DD HH:MM:SS`); a bare date is rejected.
 - `list_timeoffs` accepts `status: PENDING` (or `APPROVED`) and `user_id`. Check `time_off_status` in each row anyway.
-- `approve_timeoff` needs the `token` from the approval email. Try `update_timeoff` with `status` first.
+- Approving and rejecting go through `update_timeoff` with `status`. There is no separate approval tool; when the status can't be changed, the manager approves from the email or the web app.
 
 ## Holidays and schedules
 

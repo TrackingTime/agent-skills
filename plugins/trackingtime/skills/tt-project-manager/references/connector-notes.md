@@ -18,7 +18,7 @@ What the TrackingTime MCP connector does and doesn't do today for project work.
 
 ## Writes
 
-- `create_project` (`name`, `customer_id` or `customer_name`, `estimated_time`, `is_public`), `create_task` (`name`, `project_id`, `users`, `description`, `is_billable`, `type`), `create_subtask`, `update_task` (`confirm`, `due_date`, `estimated_time`, `users`, `project_id`), `update_project` (`confirm`), `assign_user_projects`, `duplicate_project`, `archive_task` exist and were not exercised in testing. In an earlier test the assistant's own permission layer blocked `create_task`; that is the assistant, not the API.
+- `create_project` (`name`, `customer_id` or `customer_name`, `estimated_time`, `is_public`), `create_task` (`name`, `project_id`, `users`, `description`, `is_billable`, `type`), `create_subtask`, `update_task` (`confirm`, `due_date`, `estimated_time`, `users`, `project_id`), `update_project` (`confirm`), `assign_user_projects`, `duplicate_project`, `archive_tasks_batch` (`task_ids`, `confirm`) exist and were not exercised in testing. In an earlier test the assistant's own permission layer blocked `create_task`; that is the assistant, not the API.
 - There is no tool to create a task list. Tasks can be moved into an existing list with `update_task` → `list_id`.
 - `batch_update_tasks` is a destructive batch write; not exercised. One `update_task` per task is safer.
 - `track_task` with `task_name` creates a nameless GHOST task; create tasks with `create_task`. Entries on GHOST tasks still show in `list_filtered_events` with a `tid` that isn't in the project's task list; report them as time on tasks not in the project list.
@@ -28,7 +28,7 @@ What the TrackingTime MCP connector does and doesn't do today for project work.
 - `list_filtered_events` filters take names in an array (`project`, `customer`, `user`, `is_billed`), not ids. `parameters` choose the fields (`project`, `task`, `user`, `is_billable`, `is_billed`, `notes`). No pagination; one month at a time on busy accounts.
 - `list_project_times` ignores `project_ids`, `from` and `to`.
 - Rates and costs are on projects (`billing`) and people (`list_users` with `include_billing: true`), not on entries.
-- `get_events_summary` is empty and `get_events_stats` fails. Add up `d` yourself.
+- `get_events_stats` fails. Add up `d` yourself.
 
 ## Capacity
 

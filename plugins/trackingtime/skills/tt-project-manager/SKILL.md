@@ -46,7 +46,7 @@ Pick the workflow from what the person says, then read only that reference file:
 
 ## Rules for every write
 
-- Writes in this skill: `create_project`, `create_task`, `create_subtask`, `update_task`, `update_project`, `assign_user_projects`, `duplicate_project`, `create_customer`, `archive_task`. Show the whole plan (names, owners, dates, estimate) before the first call; wait for a yes in this conversation; tools with a `confirm` flag get `confirm: true` only after that yes.
+- Writes in this skill: `create_project`, `create_task`, `create_subtask`, `update_task`, `update_project`, `assign_user_projects`, `duplicate_project`, `create_customer`, `archive_tasks_batch`. Show the whole plan (names, owners, dates, estimate) before the first call; wait for a yes in this conversation; tools with a `confirm` flag get `confirm: true` only after that yes.
 - One yes covers one plan shown in full. Adding "two more tasks" later is a new plan and a new yes.
 - Create in order and stop at the first failure. Report what was created with its ids so nothing is created twice on a retry.
 - After writing, read back (`get_project` with `include_tasks: true`) and confirm in one line.

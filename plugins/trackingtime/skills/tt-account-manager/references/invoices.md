@@ -22,8 +22,8 @@ Paid this quarter: #105 USD 1,011.00
 The connector's `create_invoice` takes only header fields (customer name, address, terms, payment details), not line items, so an invoice built here would be empty. Instead:
 
 1. Build the lines from `unbilled-hours.md` for the client and range: one line per project (or per task if `config.md` groups by task), `quantity_hours`, rate, amount; expenses as their own lines.
-2. `get_next_invoice_number` for the number it will get.
-3. Show the draft: number, client, date, due date (terms from `config.md` or the account's `default_invoice_terms`), lines, subtotal, tax rate from the account (`get_me` → `apps[key = "invoicing"].settings.default_tax_rate`), total.
+2. Don't give the draft a number: TrackingTime assigns it when the invoice is created.
+3. Show the draft: client, date, due date (terms from `config.md` or the account's `default_invoice_terms`), lines, subtotal, tax rate from the account (`get_me` → `apps[key = "invoicing"].settings.default_tax_rate`), total.
 4. Tell the person to create it in the web app (Invoices → New invoice, or from the report with "create invoice") and paste the number back if they want it sent from here.
 
 ## Sending

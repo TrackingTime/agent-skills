@@ -11,7 +11,7 @@ What the TrackingTime MCP connector does and doesn't do today. Read this before 
 
 ## Day totals
 
-- `get_events_summary` returns an empty result and `get_events_stats` fails. Sum the `d` field (seconds) of `list_events` instead.
+- `get_events_stats` fails. Sum the `d` field (seconds) of `list_events` instead.
 - `get_timecard` and `generate_timecard` for the current day lag behind entries created or edited later in the day. Use them for past days, never for "today".
 - `list_events` ignores the time part of `from` and `to`: it returns the whole day. Filter by time yourself.
 

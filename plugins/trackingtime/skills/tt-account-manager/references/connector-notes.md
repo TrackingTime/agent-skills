@@ -20,7 +20,6 @@ What the TrackingTime MCP connector does and doesn't do today for account work.
 ## Invoices
 
 - `list_invoices` (`from`, `to`, `status`, `customer_id`) returns full invoices with `lines`; the response can be large. Statuses seen: `DRAFT`, `OPEN`, `OVERDUE`, `PAID`.
-- `get_next_invoice_number` works.
 - `create_invoice` accepts only `customer_name`, `customer_address`, `terms`, `payment_details` (no lines). Don't use it to invoice hours.
 - `send_invoice` (`invoice_id`, `email`, `message`, `confirm`) and `mark_invoice_paid` (`invoice_id`, `confirm`) exist and were not exercised. Verify with `get_invoice`.
 - `export_invoice` returns `{}`.
@@ -28,8 +27,7 @@ What the TrackingTime MCP connector does and doesn't do today for account work.
 
 ## Reports
 
-- `list_reports` and `get_report` list shared reports (docs) with `doc_type`, `public_token`, `live`, `query_data`. The share URL isn't returned; the web app shows it.
-- `create_report` takes a free-form `data` payload that isn't documented; not exercised.
+- The connector has no tools for TrackingTime's shared reports. A live link for a client is created in the web app (Reports → Share).
 
 ## Expenses
 
@@ -37,4 +35,4 @@ What the TrackingTime MCP connector does and doesn't do today for account work.
 
 ## Summaries
 
-- `get_events_summary` returns an empty result and `get_events_stats` fails. Add up `d` yourself.
+- `get_events_stats` fails. Add up `d` yourself.

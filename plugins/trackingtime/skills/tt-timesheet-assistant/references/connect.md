@@ -4,8 +4,11 @@ Read this when the TrackingTime tools (`get_me`, `list_users`, `track_task`…) 
 
 ## The connector
 
-- URL: `https://mcp.trackingtime.co/mcp`
-- Name it **TrackingTime**. Authentication is OAuth: the person signs in with their TrackingTime account and the connector sees what that account sees.
+- TrackingTime is listed in the Claude directory and in the ChatGPT plugin store. In those two apps, install it from the listing; don't set it up by hand.
+  - Claude: https://claude.ai/directory/mcp-trackingtime-co
+  - ChatGPT: https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317
+- Everywhere else, add it by URL: `https://mcp.trackingtime.co/mcp`, and name it **TrackingTime**.
+- Authentication is OAuth: the person signs in with their TrackingTime account and the connector sees what that account sees.
 - It needs a TrackingTime account. Timesheets work on the Free Plan; attendance, Time Cards, time off, retainers and invoices need the Pro Plan.
 
 ## Two different situations
@@ -16,18 +19,20 @@ Read this when the TrackingTime tools (`get_me`, `list_users`, `track_task`…) 
 ## Steps by app
 
 **Claude (web and desktop)**
-1. Settings → Connectors → **Add custom connector**.
-2. Name: TrackingTime. URL: `https://mcp.trackingtime.co/mcp`. Add, then **Connect** and sign in.
+1. Open https://claude.ai/directory/mcp-trackingtime-co (or search for TrackingTime in the connectors directory inside Claude).
+2. Add the connector and sign in with the TrackingTime account.
 3. Back in the chat, turn TrackingTime on in the connectors menu, then ask again.
+- On a Team or Enterprise plan an Owner may have to add the connector for the organization first; if the listing can't be added, say that and point to the Owner.
 
 **Claude Code**
 - With the plugin: `/plugin install trackingtime@trackingtime` brings the connector; restart Claude Code and sign in when prompted.
 - Without it: `claude mcp add --transport http trackingtime https://mcp.trackingtime.co/mcp`, then `/mcp` to sign in.
 
 **ChatGPT**
-1. Settings → Apps & Connectors → Advanced → turn on **Developer mode** (Plus, Pro, Business, Enterprise or Edu plan).
-2. Settings → Apps & Connectors → **Create**. Name: TrackingTime. URL: `https://mcp.trackingtime.co/mcp`. Authentication: OAuth. Sign in.
-3. In the chat, enable TrackingTime from the connectors menu.
+1. Open https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317 and choose **Install plugin**.
+2. Sign in with the TrackingTime account when asked.
+3. In the chat, pick TrackingTime from the "+" menu, then ask again.
+- In a Business, Enterprise or Edu workspace an admin may have to allow the plugin first. Developer mode is not needed.
 
 **Gemini**
 - Gemini app: Settings → Connectors, add a custom connector with the same URL if the account allows it; otherwise use Gemini CLI.

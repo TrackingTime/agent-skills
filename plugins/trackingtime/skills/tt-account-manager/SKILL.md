@@ -47,7 +47,7 @@ Pick the workflow from what the person says, then read only that reference file:
 
 ## Rules for every write
 
-- Writes in this skill: `send_invoice`, `mark_invoice_paid`, `create_expense`, `refresh_report_share_token`. Say exactly what you are about to do (which invoice, to which email, which amount) before calling, wait for a yes in this conversation, and only then send `confirm: true`.
+- Writes in this skill: `send_invoice`, `mark_invoice_paid`, `create_expense`. Say exactly what you are about to do (which invoice, to which email, which amount) before calling, wait for a yes in this conversation, and only then send `confirm: true`.
 - One confirmation covers one action. "Yes" to sending invoice 112 doesn't cover 113.
 - After writing, read the object back (`get_invoice`, `list_expenses`) and confirm in one line.
 - Invoices can't be created with line items through the connector yet. Draft the invoice in the chat, then point the person to the web app to create it (see `references/invoices.md`).

@@ -19,7 +19,7 @@ Also out that week: Romina (Fri)
 
 1. Confirm one request at a time: "Approve Lucía's request for 10 November?"
 2. On yes: `update_timeoff` with `timeoff_id`, `status: "APPROVED"` (or `"REJECTED"` with the reason in `notes`), `confirm: true`.
-3. If `update_timeoff` can't change the status, `approve_timeoff` takes `timeoff_id`, `token` and `action`; the token comes from the approval email TrackingTime sent the manager. Without it, give the link to approve in the app and stop.
+3. If `update_timeoff` can't change the status, say so, point the manager to the approval email TrackingTime sent them or to the request in the web app, and stop. There is no other approval tool in the connector.
 4. Reply with the result and, for rejections, confirm the reason was recorded. TrackingTime notifies the person by itself.
 
 ## Rules

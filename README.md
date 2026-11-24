@@ -21,7 +21,7 @@ One install includes all five agents. Turn on only the roles you need. They are 
 ## What you need
 
 - A TrackingTime account. Timesheets work on the Free Plan; attendance, Time Cards, time off, retainers and invoices (Payroll Assistant and Account Manager) need the Pro Plan.
-- The TrackingTime connector: `https://mcp.trackingtime.co/mcp` (OAuth: you sign in with your TrackingTime account).
+- The TrackingTime connector (OAuth: you sign in with your TrackingTime account). It is listed in the [Claude directory](https://claude.ai/directory/mcp-trackingtime-co) and the [ChatGPT plugin store](https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317); other assistants add it by URL: `https://mcp.trackingtime.co/mcp`.
 - For HR Manager reminders: a Slack or Microsoft Teams connector in the same assistant. Without one, the agent drafts the messages and you send them.
 
 ## Install
@@ -63,7 +63,7 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 ### Claude (web and desktop)
 
 1. Settings → Capabilities → turn on **Code execution and file creation**.
-2. Settings → Connectors → **Add custom connector**. Name: TrackingTime. URL: `https://mcp.trackingtime.co/mcp`. Connect and sign in.
+2. Add the connector from the Claude directory: https://claude.ai/directory/mcp-trackingtime-co. Sign in with your TrackingTime account.
 3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `tt-timesheet-assistant.zip`, `tt-hr-manager.zip`, `tt-payroll-assistant.zip`, `tt-account-manager.zip` or `tt-project-manager.zip`).
 4. Turn the skill on.
 
@@ -79,9 +79,8 @@ Members who sign in to Claude Code with the same account get it there too.
 
 ### ChatGPT
 
-1. Settings → Apps & Connectors → Advanced → turn on **Developer mode** (Plus, Pro, Business, Enterprise, Edu).
-2. Settings → Apps & Connectors → **Create**. Name: TrackingTime. URL: `https://mcp.trackingtime.co/mcp`. Authentication: OAuth.
-3. Plugins → **Skills** → **Create** → **Upload from your computer**. Upload the ZIP of each agent you want.
+1. Open the TrackingTime plugin in the ChatGPT store and choose **Install plugin**: https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317. Sign in with your TrackingTime account. Developer mode is not needed.
+2. Plugins → **Skills** → **Create** → **Upload from your computer**. Upload the ZIP of each agent you want.
 
 ### Gemini
 
