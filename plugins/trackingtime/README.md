@@ -10,7 +10,14 @@ The five agents:
 - **Account Manager** — watches retainer burn and alerts before a budget runs out, reports hours and amounts per client, lists unbilled billable hours, shows invoice status and sends or marks invoices paid after confirmation, and logs billable expenses.
 - **Project Manager** — sets up a project with tasks, owners, due dates and an estimate from a plain brief, reports where a project stands against its estimate and delivery date, shows profitability per project or client, and shows team workload for the week.
 
-Install in Claude Code: `/plugin install trackingtime --marketplace trackingtime/agent-skills`
+Install in Claude Code:
+
+```
+/plugin marketplace add trackingtime/agent-skills
+/plugin install trackingtime@trackingtime
+```
+
+Restart Claude Code and sign in with your TrackingTime account when prompted.
 
 Commands: `/trackingtime:clock-in`, `/trackingtime:clock-out`, `/trackingtime:whos-in`, `/trackingtime:log-my-day`, `/trackingtime:my-hours`, `/trackingtime:hours-check`, `/trackingtime:remind-team`, `/trackingtime:compliance-report`, `/trackingtime:time-off`, `/trackingtime:whos-out`, `/trackingtime:payroll-summary`, `/trackingtime:overtime-check`, `/trackingtime:absences`, `/trackingtime:close-period`, `/trackingtime:retainer-burn`, `/trackingtime:client-report`, `/trackingtime:unbilled-hours`, `/trackingtime:invoices`, `/trackingtime:new-project`, `/trackingtime:project-status`, `/trackingtime:profitability`, `/trackingtime:team-workload`.
 

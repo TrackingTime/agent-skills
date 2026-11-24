@@ -25,7 +25,7 @@ Read this when the TrackingTime tools (`get_me`, `list_users`, `track_task`…) 
 - On a Team or Enterprise plan an Owner may have to add the connector for the organization first; if the listing can't be added, say that and point to the Owner.
 
 **Claude Code**
-- With the plugin: `/plugin install trackingtime@trackingtime` brings the connector; restart Claude Code and sign in when prompted.
+- With the plugin: first `/plugin marketplace add trackingtime/agent-skills`, then `/plugin install trackingtime@trackingtime`, which brings the connector; restart Claude Code and sign in when prompted.
 - Without it: `claude mcp add --transport http trackingtime https://mcp.trackingtime.co/mcp`, then `/mcp` to sign in.
 
 **ChatGPT**
