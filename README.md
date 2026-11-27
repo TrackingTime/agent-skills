@@ -87,8 +87,12 @@ The ZIPs are attached to the [latest GitHub Release](https://github.com/Tracking
 
 **ChatGPT**
 
+Skills in ChatGPT need a Business, Enterprise, Healthcare or Edu plan. On Enterprise and Edu, a workspace admin has to allow skill uploading.
+
 1. Open the TrackingTime plugin in the ChatGPT store and choose **Install plugin**: https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317. Sign in with your TrackingTime account. Developer mode is not needed.
-2. Plugins → **Skills** → **Create** → **Upload from your computer**. Choose a ZIP from step 1. Repeat for each agent.
+2. In the sidebar, select **Plugins**, then open the **Skills** tab.
+3. Select **Add** → **Upload from your computer** and choose a ZIP from step 1. Repeat for each agent.
+4. Wait for ChatGPT to scan each skill. Most are available right after the scan; if one is marked **Needs Review**, open it and confirm.
 
 ### Claude Team and Enterprise (everyone at once)
 
