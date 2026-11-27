@@ -60,12 +60,35 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 | `/trackingtime:profitability [project or client]` | Billable value, cost and margin (admins) |
 | `/trackingtime:team-workload [team]` | Capacity, hours logged, open tasks this week (managers) |
 
-### Claude (web and desktop)
+### Claude (web and desktop) and ChatGPT
+
+Both apps take one agent per upload. Download the ZIPs first, then follow the steps for your app.
+
+#### Step 1: Download the ZIP of each agent you want
+
+The ZIPs are attached to the [latest GitHub Release](https://github.com/TrackingTime/agent-skills/releases/latest). Download only the agents you need and don't unzip them.
+
+| Agent | ZIP |
+|---|---|
+| Timesheet Assistant | [`tt-timesheet-assistant.zip`](https://github.com/TrackingTime/agent-skills/releases/latest/download/tt-timesheet-assistant.zip) |
+| HR Manager | [`tt-hr-manager.zip`](https://github.com/TrackingTime/agent-skills/releases/latest/download/tt-hr-manager.zip) |
+| Payroll Assistant | [`tt-payroll-assistant.zip`](https://github.com/TrackingTime/agent-skills/releases/latest/download/tt-payroll-assistant.zip) |
+| Account Manager | [`tt-account-manager.zip`](https://github.com/TrackingTime/agent-skills/releases/latest/download/tt-account-manager.zip) |
+| Project Manager | [`tt-project-manager.zip`](https://github.com/TrackingTime/agent-skills/releases/latest/download/tt-project-manager.zip) |
+
+#### Step 2: Install in your app
+
+**Claude (web and desktop)**
 
 1. Settings → Capabilities → turn on **Code execution and file creation**.
 2. Add the connector from the Claude directory: https://claude.ai/directory/mcp-trackingtime-co. Sign in with your TrackingTime account.
-3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Upload the ZIP of each agent you want (download it from the latest GitHub Release, e.g. `tt-timesheet-assistant.zip`, `tt-hr-manager.zip`, `tt-payroll-assistant.zip`, `tt-account-manager.zip` or `tt-project-manager.zip`).
-4. Turn the skill on.
+3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Choose a ZIP from step 1. Repeat for each agent.
+4. Turn each skill on.
+
+**ChatGPT**
+
+1. Open the TrackingTime plugin in the ChatGPT store and choose **Install plugin**: https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317. Sign in with your TrackingTime account. Developer mode is not needed.
+2. Plugins → **Skills** → **Create** → **Upload from your computer**. Choose a ZIP from step 1. Repeat for each agent.
 
 ### Claude Team and Enterprise (everyone at once)
 
@@ -76,11 +99,6 @@ An Owner uploads the whole plugin once and every member gets all five agents, th
 3. Set the distribution to "Installed by default" or "Available to install". Members find it under Customize → Plugins.
 
 Members who sign in to Claude Code with the same account get it there too.
-
-### ChatGPT
-
-1. Open the TrackingTime plugin in the ChatGPT store and choose **Install plugin**: https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317. Sign in with your TrackingTime account. Developer mode is not needed.
-2. Plugins → **Skills** → **Create** → **Upload from your computer**. Upload the ZIP of each agent you want.
 
 ### Gemini
 
