@@ -1,5 +1,5 @@
 interface:
   display_name: "TrackingTime Account Manager"
   short_description: "Retainers, unbilled hours, invoices and client reports"
-  icon_small: "./assets/icon-small.png"
+  icon_small: "./assets/icon-small.svg"
   icon_large: "./assets/icon-large.png"

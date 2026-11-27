@@ -1,5 +1,5 @@
 interface:
   display_name: "TrackingTime Payroll Assistant"
   short_description: "Payroll hours, overtime, absences and pay period close"
-  icon_small: "./assets/icon-small.png"
+  icon_small: "./assets/icon-small.svg"
   icon_large: "./assets/icon-large.png"

@@ -1,5 +1,5 @@
 interface:
   display_name: "TrackingTime Project Manager"
   short_description: "Project setup, status, profitability and team workload"
-  icon_small: "./assets/icon-small.png"
+  icon_small: "./assets/icon-small.svg"
   icon_large: "./assets/icon-large.png"
