@@ -21,19 +21,35 @@ One install includes all five agents. Turn on only the roles you need. They are 
 ## What you need
 
 - A TrackingTime account. Timesheets work on the Free Plan; attendance, Time Cards, time off, retainers and invoices (Payroll Assistant and Account Manager) need the Pro Plan.
-- The TrackingTime connector (OAuth: you sign in with your TrackingTime account). It is listed in the [Claude directory](https://claude.ai/directory/mcp-trackingtime-co) and the [ChatGPT plugin store](https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317); other assistants add it by URL: `https://mcp.trackingtime.co/mcp`.
+- The TrackingTime connector, which also brings the agents. You sign in with your TrackingTime account (OAuth); see [Install](#install).
 - For HR Manager reminders: a Slack or Microsoft Teams connector in the same assistant. Without one, the agent drafts the messages and you send them.
 
 ## Install
 
+### Recommended: add the TrackingTime connector
+
+The connector serves the five agents together with the tools. One install brings everything, and the agents stay up to date on their own.
+
+| Assistant | How |
+|---|---|
+| Claude (web and desktop) | Open the [TrackingTime connector in the Claude directory](https://claude.ai/directory/mcp-trackingtime-co) and add it. |
+| ChatGPT | Open the [TrackingTime plugin in the ChatGPT store](https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317) and choose **Install plugin**. Developer mode is not needed. |
+| Any other assistant | Add a remote MCP server with the URL `https://mcp.trackingtime.co/mcp`. |
+
+Sign in with your TrackingTime account when asked, then ask for something an agent does, for example "who's in today?" or "log my day".
+
+Not every assistant loads agents from a connector yet. If yours doesn't show the TrackingTime agents among its skills, keep the connector and [install the agents one by one](#install-the-agents-one-by-one).
+
 ### Claude Code
+
+The plugin adds slash commands on top of the agents and the connector:
 
 ```
 /plugin marketplace add trackingtime/agent-skills
 /plugin install trackingtime@trackingtime
 ```
 
-Brings every agent, the connector and the slash commands. Restart Claude Code after installing.
+Restart Claude Code after installing.
 
 | Command | Does |
 |---|---|
@@ -60,9 +76,9 @@ Brings every agent, the connector and the slash commands. Restart Claude Code af
 | `/trackingtime:profitability [project or client]` | Billable value, cost and margin (admins) |
 | `/trackingtime:team-workload [team]` | Capacity, hours logged, open tasks this week (managers) |
 
-### Claude (web and desktop) and ChatGPT
+### Install the agents one by one
 
-Both apps take one agent per upload. Download the ZIPs first, then follow the steps for your app.
+Use this when your assistant doesn't load the agents from the connector, or when you want only some of them. Claude, ChatGPT and Gemini take one agent per upload. Download the ZIPs first, then follow the steps for your app.
 
 #### Step 1: Download the ZIP of each agent you want
 
@@ -81,7 +97,7 @@ The ZIPs are attached to the [latest GitHub Release](https://github.com/Tracking
 **Claude (web and desktop)**
 
 1. Settings → Capabilities → turn on **Code execution and file creation**.
-2. Add the connector from the Claude directory: https://claude.ai/directory/mcp-trackingtime-co. Sign in with your TrackingTime account.
+2. Add the connector, if you haven't yet: https://claude.ai/directory/mcp-trackingtime-co. Sign in with your TrackingTime account.
 3. Customize → Skills → **+** → **Create skill** → **Upload a skill**. Choose a ZIP from step 1. Repeat for each agent.
 4. Turn each skill on.
 
@@ -89,10 +105,15 @@ The ZIPs are attached to the [latest GitHub Release](https://github.com/Tracking
 
 Skills in ChatGPT need a Business, Enterprise, Healthcare or Edu plan. On Enterprise and Edu, a workspace admin has to allow skill uploading.
 
-1. Open the TrackingTime plugin in the ChatGPT store and choose **Install plugin**: https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317. Sign in with your TrackingTime account. Developer mode is not needed.
+1. Install the TrackingTime plugin, if you haven't yet: https://chatgpt.com/plugins/plugin_asdk_app_6aff2529d18c81919e861a125b50a317. Sign in with your TrackingTime account.
 2. In the sidebar, select **Plugins**, then open the **Skills** tab.
 3. Select **Add** → **Upload from your computer** and choose a ZIP from step 1. Repeat for each agent.
 4. Wait for ChatGPT to scan each skill. Most are available right after the scan; if one is marked **Needs Review**, open it and confirm.
+
+**Gemini**
+
+- Settings → Skills → **Upload**, then the agent's ZIP.
+- Gemini CLI: add the connector with `gemini mcp add`, and copy the agent folder into `~/.gemini/skills/`.
 
 ### Claude Team and Enterprise (everyone at once)
 
@@ -103,11 +124,6 @@ An Owner uploads the whole plugin once and every member gets all five agents, th
 3. Set the distribution to "Installed by default" or "Available to install". Members find it under Customize → Plugins.
 
 Members who sign in to Claude Code with the same account get it there too.
-
-### Gemini
-
-- Settings → Skills → **Upload**, then the agent's ZIP.
-- Gemini CLI: add the connector with `gemini mcp add`, and copy the agent folder into `~/.gemini/skills/`.
 
 ### Perplexity
 
